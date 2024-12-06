@@ -1,0 +1,36 @@
+.note {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #6c63ff;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background-color: #6c63ff;
+}
+
+.checkbox:checked::before {
+  content: "✔";
+  color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.checkbox:checked + p {
+  text-decoration: line-through;
+}
+
+p {
+  font-weight: bold;
+  padding-left: 15px;
+}

@@ -1,0 +1,35 @@
+.list {
+  width: 520px;
+  align-self: center;
+  margin-top: 3rem;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.list::-webkit-scrollbar {
+  width: 1px;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid #6c63ff;
+}
+
+.list li:last-child {
+  border-bottom: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button img {
+  width: 18px;
+  height: 18px;
+  margin-right: 20px;
+}

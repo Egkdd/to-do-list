@@ -1,0 +1,8 @@
+.empty {
+  position: relative;
+  top: 7rem;
+}
+
+.empty p {
+  margin-top: 15px;
+}
