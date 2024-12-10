@@ -1,0 +1,11 @@
+:root {
+    --main-bg-color: #252525;
+    --main-text-color: #f7f7f7;
+    --btn-color: #6c63ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
