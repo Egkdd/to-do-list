@@ -1,6 +1,5 @@
 main {
   background-color: var(--main-bg-color);
-  text-align: center;
   height: 100vh;
   font-family: sans-serif;
   color: var(--main-text-color);

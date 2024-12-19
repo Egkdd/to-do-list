@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Empty, NoteList, AddNote } from "./components";
+import { Empty, NoteList, AddNote, Search } from "./components";
 import "./styles/ToDoList.module.css";
 
 export default function ToDoList() {
@@ -8,6 +8,8 @@ export default function ToDoList() {
     return value !== null ? JSON.parse(value) : [];
   });
   const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [filteredCategory, setFilteredCategory] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
@@ -17,37 +19,65 @@ export default function ToDoList() {
     event.preventDefault();
     if (!name) {
       return alert("Please, enter a name");
+    } else if (!category) {
+      return alert("Please, choose a category");
+    } else if (name.length >= 500) {
+      return alert("Too long text");
     }
     setNotes([
       ...notes,
       {
         id: notes.length + 1,
-        name: name,
+        name,
+        category,
       },
     ]);
     setName("");
+    setCategory("");
   }
 
-  const handleNameChange = (event) => setName(event.target.value);
+  const handleNotesFilter = (selectedCategory = " ") => {
+    setFilteredCategory(selectedCategory);
+  };
 
-  function handleDeleteClick(id) {
+  const filteredNotes = filteredCategory
+    ? notes.filter((note) => note.category === filteredCategory)
+    : notes;
+
+  const handleEditComplete = (id, newNote) => {
+    setNotes(
+      notes.map((note) => (note.id === id ? { ...note, name: newNote } : note))
+    );
+  };
+
+  const handleNameChange = (event) => setName(event.target.value);
+  const handleCategoryChange = (event) => setCategory(event.target.value);
+
+  const handleDeleteClick = (id) => {
     if (confirm("Are you sure you want to delete the record?")) {
       setNotes(notes.filter((note) => note.id !== id));
     }
-  }
+  };
 
   return (
     <main>
       <h1>TODO LIST</h1>
-      {notes.length === 0 ? (
+      <Search onSearch={handleNotesFilter} />
+      {filteredNotes.length === 0 ? (
         <Empty />
       ) : (
-        <NoteList notes={notes} onDeleteClick={handleDeleteClick} />
+        <NoteList
+          notes={filteredNotes}
+          onDeleteClick={handleDeleteClick}
+          onEditComplete={handleEditComplete}
+        />
       )}
       <AddNote
         name={name}
+        category={category}
         onFormSubmit={handleFormSubmit}
         onNameChange={handleNameChange}
+        onCategoryChange={handleCategoryChange}
       />
     </main>
   );

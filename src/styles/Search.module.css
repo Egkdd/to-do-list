@@ -1,0 +1,24 @@
+.search {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.categories {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1.5px solid var(--btn-color);
+  color: var(--main-text-color);
+}
+
+.categories:hover {
+  background-color: var(--btn-color);
+  font-weight: bold;
+  scale: 1.1;
+}
+
+.categories:active {
+  background-color: var(--btn-color);
+  font-weight: bold;
+  scale: 1;
+}

@@ -1,8 +1,7 @@
 .list {
-  width: 520px;
   align-self: center;
-  margin-top: 3rem;
-  max-height: 350px;
+  margin-top: 2rem;
+  max-height: 300px;
   overflow-y: auto;
 }
 
@@ -22,10 +21,16 @@
   border-bottom: none;
 }
 
-button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+.container {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.container p {
+  padding-right: 15px;
+  color: var(--non-active);
+  font-weight: normal;
 }
 
 button img {

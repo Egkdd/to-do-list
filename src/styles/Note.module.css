@@ -1,6 +1,25 @@
 .note {
-    display: flex;
-    align-items: center;
+  width: 520px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.record {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editInput {
+  appearance: none;
+  height: 26px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  margin-left: 15px;
+  padding-left: 10px;
+  color: var(--main-text-color);
+  font-size: 16px;
 }
 
 .checkbox {
@@ -10,6 +29,7 @@
   border: 1px solid var(--btn-color);
   border-radius: 2px;
   cursor: pointer;
+  margin: 0;
 }
 
 .checkbox:checked {
@@ -28,10 +48,38 @@
 
 .checkbox:checked + p {
   text-decoration: line-through;
-  color: gray;
+  color: var(--non-active);
 }
 
 p {
   font-weight: bold;
   padding-left: 15px;
+}
+
+p[contenteditable="true"] {
+  outline: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.container p {
+  padding-right: 15px;
+  color: var(--non-active);
+  font-weight: normal;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button img {
+  width: 18px;
+  height: 18px;
 }
